@@ -1,12 +1,9 @@
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-public class LotteryTicket {
+public class Ticket {
 
-    Long ticketId;
+    private final long ticketId;
     private final Set<Integer> numbers = new HashSet<>();
-
 
     public Set<Integer> getNumbers() {
         return numbers;
@@ -17,8 +14,10 @@ public class LotteryTicket {
     }
 
 
-    public LotteryTicket(long ticketId, List<Integer> numbers) {
-        this.numbers.addAll(numbers);
+    public Ticket(long ticketId, int ... nums) {
+        for (int num : nums) {
+            numbers.add(num);
+        }
         this.ticketId = ticketId;
     }
 
